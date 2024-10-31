@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery</title>
+    <!-- Incluye Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Incluye Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-auth-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.17.0/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="../styles/deliverystyles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="../index.html">Fleetup</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/almacen_actividades.html">Almacén Actividades</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/consultarid.html">Consultar IDs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/tecnicos.html">Técnicos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/sacMicuenta.html">SAC Mi Cuenta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/orden_venta.html">Orden de Venta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/delivery.html">Registrar Salida Equipos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/inventory.html">Inventario</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/managerteams.html">Manager Teams</a>
+                </li>
+              </ul>
+              <button id="logout" class="btn btn-outline-danger ml-auto">Logout</button>
+            </div>
+        </nav>
+    </header>
+    <div class="container center-container">
+        <h2>Entrega de Equipos</h2>
+        <form id="delivery-form">
+            <div class="form-group">
+                <label for="user-name">Usuario:</label>
+                <input type="text" class="form-control" id="user-name" readonly>
+            </div>
+            <div class="form-group">
+                <label for="user-email">Correo:</label>
+                <input type="email" class="form-control" id="user-email" readonly>
+            </div>
+            <div class="form-group">
+                <label for="role">Se entregan equipos a:</label>
+                <select class="form-control" id="role">
+                    <option value="">Seleccione</option>
+                    <option value="tecnico">Técnico</option>
+                    <option value="cliente">Cliente</option>
+                </select>
+            </div>
+            <div class="form-group" id="tecnico-field" style="display: none;">
+                <label for="tecnico-dropdown">Técnico:</label>
+                <select class="form-control" id="tecnico-dropdown"></select>
+            </div>
+            <div class="form-group" id="client-field" style="display: none;">
+                <label for="cliente">Cliente:</label>
+                <select id="client-dropdown" class="form-control">
+                    <option value="">Seleccione un cliente</option>
+                </select>
+            </div>
+            <div class="form-group" id="guia-dhl-field" style="display:none;">
+                <label for="guia-dhl">Guía DHL:</label>
+                <input type="text" class="form-control" id="guia-dhl">
+            </div>
+        </form>
+        <br>
+        <h3>Dispositivos</h3>
+        <form id="device-form">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="device-id">ID del dispositivo</label>
+                    <input type="text" class="form-control" id="device-id" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="sim-number">Número de SIM</label>
+                    <input type="text" class="form-control" id="sim-number" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Añadir dispositivo</button>
+        </form>
+        <br>
+        <form id="upload-form">
+            <div class="form-group">
+                <label for="file-upload">Subir archivo Excel:</label>
+                <input type="file" class="form-control-file" id="file-upload" accept=".xlsx, .xls">
+            </div>
+            <button type="button" class="btn btn-info" id="upload-btn">Cargar datos</button>
+            <button type="button" class="btn btn-danger" id="clear-btn">Eliminar datos</button>
+        </form>
+        <br>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID del dispositivo</th>
+                    <th>Número de SIM</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="device-table-body">
+                <!-- Filas de la tabla serán añadidas aquí dinámicamente -->
+            </tbody>
+        </table>
+        <form id="image-form">
+            <div class="form-group">
+                <label for="image-upload">Subir imagen:</label>
+                <input type="file" class="form-control-file" id="image-upload" accept="image/*">
+            </div>
+            <img id="image-preview" src="" alt="Imagen cargada">
+        </form>
+        <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="module" src="../scripts/app.js"></script>
+    <script type="module" src="../scripts/delivery.js"></script>
+</body>
+
+</html>

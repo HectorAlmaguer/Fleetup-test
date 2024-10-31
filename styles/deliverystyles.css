@@ -1,0 +1,9 @@
+.center-container {
+    margin-top: 50px;
+  }
+  #image-preview {
+    max-width: 25%;
+    height: auto;
+    display: none;
+    margin-top: 20px;
+  }

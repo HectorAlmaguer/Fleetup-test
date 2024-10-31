@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar IDs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="../index.html">Fleetup</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/almacen_actividades.html">Almacén Actividades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/consultarid.html">Consultar IDs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/tecnicos.html">Técnicos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/sacMicuenta.html">SAC Mi Cuenta</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/orden_venta.html">Orden de Venta</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/delivery.html">Registrar Salida Equipos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/inventory.html">Inventario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/managerteams.html">Manager Teams</a>
+            </li>
+          </ul>
+          <button id="logout" class="btn btn-outline-danger ml-auto">Logout</button>
+        </div>
+    </nav>
+    </header>
+    <div class="container mt-5">
+        <div class="form-group">
+            <label for="user-name">Bienvenido:</label>
+            <input type="text" class="form-control" id="user-name" readonly>
+          </div>
+        <h2>Consultar IDs</h2>
+        <div class="form-group">
+            <label for="filtro-cuenta-cliente">Cuenta Cliente:</label>
+            <select class="form-control" id="filtro-cuenta-cliente">
+                <option value="">Todas las cuentas</option>
+                <!-- Las opciones serán llenadas dinámicamente -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="filtro-id-dispositivo">ID del Dispositivo:</label>
+            <input type="text" class="form-control" id="filtro-id-dispositivo">
+        </div>
+        <button id="btn-filtrar" class="btn btn-primary">Filtrar</button>
+        <button id="btn-descargar-pdf" class="btn btn-secondary ml-2">Descargar PDF</button>
+        <button id="btn-descargar-excel" class="btn btn-success ml-2">Descargar Excel</button>
+        <table class="table mt-3" id="tabla-ids">
+            <thead>
+                <tr>
+                    <th>Cuenta Cliente</th>
+                    <th>ID del Dispositivo</th>
+                    <th>SIM</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-ids-body">
+                <!-- Filas de la tabla se llenarán dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    <script type="module" src="../scripts/app.js"></script>
+    <script type="module" src="../scripts/consultarid.js"></script>
+</body>
+
+</html>

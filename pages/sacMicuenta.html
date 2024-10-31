@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ver Equipos</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="../index.html">Fleetup</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/almacen_actividades.html">Almacén Actividades</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/consultarid.html">Consultar IDs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/tecnicos.html">Técnicos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/sacMicuenta.html">SAC Mi Cuenta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/orden_venta.html">Orden de Venta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/delivery.html">Registrar Salida Equipos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/inventory.html">Inventario</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/managerteams.html">Manager Teams</a>
+        </li>
+      </ul>
+      <button id="logout" class="btn btn-outline-danger ml-auto">Logout</button>
+    </div>
+</nav>
+
+  <div class="container mt-5">
+    <h2>Ver Equipos</h2>
+    <div class="form-group">
+      <label for="user-name">Bienvenido:</label>
+    </div>
+    <div class="form-group">
+      <label for="user-name">Usuario:</label>
+      <input type="text" class="form-control" id="user-name" readonly>
+    </div>
+    <div class="form-group">
+      <label for="user-email">Correo:</label>
+      <input type="email" class="form-control" id="user-email" readonly>
+    </div>
+    <div class="form-group">
+      <label for="cuenta-select">Seleccionar Cuenta:</label>
+      <select class="form-control" id="cuenta-select"></select>
+    </div>
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID Dispositivo</th>
+            <th>Número SIM</th>
+            <th>Fecha de Entrega</th>
+            <th>Técnico/Guía</th>
+          </tr>
+        </thead>
+        <tbody id="equipos-table-body">
+          <!-- Equipos serán insertados aquí -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-database.js"></script>
+  <script type="module" src="../scripts/app.js"></script>
+  <script type="module" src="../scripts/sacmicuenta.js"></script>
+</body>
+
+</html>

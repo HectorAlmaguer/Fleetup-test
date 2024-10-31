@@ -1,0 +1,46 @@
+/* Contenedor de los checkboxes de estados y ciudades */
+.state-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#ciudades-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Estilo para los elementos de los estados y ciudades */
+.state-checkboxes label {
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente los elementos */
+    gap: 5px;
+    /* Espacio entre el checkbox y el texto */
+    margin-bottom: 5px;
+    /* Espacio inferior entre líneas de checkbox */
+}
+
+/* Estilo para los elementos de los estados y ciudades */
+.city-checkbox label {
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente los elementos */
+    gap: 5px;
+    /* Espacio entre el checkbox y el texto */
+    margin-bottom: 5px;
+    /* Espacio inferior entre líneas de checkbox */
+}
+
+/* Estilo específico para el checkbox */
+.state-checkboxes input {
+    margin: 0;
+    /* Elimina márgenes para alinear el checkbox con el texto */
+}
+
+/* Estilo específico para el checkbox */
+.city-checkboxes input {
+    margin: 0;
+    /* Elimina márgenes para alinear el checkbox con el texto */
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reporte Actividades</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="../index.html">Fleetup</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/almacen_actividades.html">Almacén Actividades</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/consultarid.html">Consultar IDs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/tecnicos.html">Técnicos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/sacMicuenta.html">SAC Mi Cuenta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/orden_venta.html">Orden de Venta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/delivery.html">Registrar Salida Equipos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/inventory.html">Inventario</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/pages/managerteams.html">Manager Teams</a>
+        </li>
+      </ul>
+      <button id="logout" class="btn btn-outline-danger ml-auto">Logout</button>
+    </div>
+</nav>
+
+  <div class="container mt-5">
+    <h1 class="mb-4">Registro de Actividades de Almacén</h1>
+    <form id="reportForm">
+      <div class="form-group">
+        <label for="user-name">Nombre:</label>
+        <input type="text" class="form-control" id="user-name" readonly>
+      </div>
+      <div class="form-group">
+        <label for="user-email">Correo:</label>
+        <input type="email" class="form-control" id="user-email" readonly>
+      </div>
+      <div class="form-group">
+        <label for="fechaHora">Fecha y hora:</label>
+        <input type="text" class="form-control" id="fechaHora" readonly>
+      </div>
+      <div class="form-group">
+        <label for="cliente">Cliente:</label>
+        <select class="form-control" id="cliente">
+          <!-- Opciones cargadas dinámicamente -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="actividad">Actividades Realizadas:</label>
+        <select class="form-control" id="actividad">
+          <option value="Configuración de Equipos">Configuración de Equipos</option>
+          <option value="Registro de sims">Registro de sims</option>
+          <option value="Registro de entradas y salidas de mercancía">Registro de entradas y salidas de mercancía</option>
+          <option value="Registro de inventario">Registro de inventario</option>
+          <option value="Seguimiento de embarques y envío de mercancía">Seguimiento de embarques y envío de mercancía</option>
+          <option value="Solicitud de requisiciones">Solicitud de requisiciones</option>
+          <option value="Seguimiento de solicitudes de Ventas">Seguimiento de solicitudes de Ventas</option>
+          <option value="Laboratorio de Almacén">Laboratorio de Almacén</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea class="form-control" id="descripcion" rows="3"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="estatus">Estatus:</label>
+        <select class="form-control" id="estatus">
+          <option value="Proceso">Proceso</option>
+          <option value="Pendiente">Pendiente</option>
+          <option value="Concluido">Concluido</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary" id="registrarActividad">Registrar Actividad</button>
+    </form>
+  </div>
+
+  <!-- Cargar jQuery y Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="module" src="../scripts/almacen_actividades.js"></script>
+</body>
+</html>
+

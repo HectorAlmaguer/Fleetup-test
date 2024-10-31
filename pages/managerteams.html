@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades de Usuario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .card-text {
+            font-size: 3rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .card-title {
+            text-align: center;
+        }
+
+        .card {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="../index.html">Fleetup</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/almacen_actividades.html">Almacén Actividades</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/consultarid.html">Consultar IDs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/tecnicos.html">Técnicos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/sacMicuenta.html">SAC Mi Cuenta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/orden_venta.html">Orden de Venta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/delivery.html">Registrar Salida Equipos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/inventory.html">Inventario</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/pages/managerteams.html">Manager Teams</a>
+                </li>
+              </ul>
+              <button id="logout" class="btn btn-outline-danger ml-auto">Logout</button>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <!-- Tablero de Actividades Diarias -->
+        <div class="row" id="activityDashboard">
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3" id="filter-actividades">
+                    <div class="card-body">
+                        <h5 class="card-title">Actividades de Hoy</h5>
+                        <p class="card-text" id="todayActivitiesCount">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-success mb-3" id="filter-ordenes">
+                    <div class="card-body">
+                        <h5 class="card-title">Órdenes de Hoy</h5>
+                        <p class="card-text" id="todayOrdersCount">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-info mb-3" id="filter-tecnicos">
+                    <div class="card-body">
+                        <h5 class="card-title">Técnicos Registrados Hoy</h5>
+                        <p class="card-text" id="todayTechniciansCount">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Actividades del Equipo</h1>
+            <p>Gerente: <span id="user-name"></span> (<span id="user-email"></span>)</p>
+
+            <table class="table mt-3">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Actividad</th>
+                        <th>Fecha y Hora</th>
+                    </tr>
+                </thead>
+                <tbody id="team-activities-table-body">
+                    <!-- Las actividades se cargarán aquí -->
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- Bootstrap JS y dependencias -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <!-- Script de Firebase y archivo JavaScript -->
+        <script type="module" src="../scripts/actividades_usuario.js"></script>
+</body>
+
+</html>

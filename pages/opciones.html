@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a Fleetup Store</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .option-btn {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .user-info {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .user-info img {
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .btn-delivery { background-color: #007bff; color: white; }
+        .btn-almacen { background-color: #28a745; color: white; }
+        .btn-consultar { background-color: #ffc107; color: white; }
+        .btn-tecnicos { background-color: #dc3545; color: white; }
+        .btn-sac-micuenta { background-color: #17a2b8; color: white; }
+        .btn-orden-venta { background-color: #6c757d; color: white; }
+        .btn-manager-teams { background-color: #f8f9fa; color: black; }
+        .btn-inventory { background-color: #6f42c1; color: white; }
+    </style>
+    <!-- Incluye SweetAlert CSS y JS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="../index.html">Fleetup</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/almacen_actividades.html">Almacén Actividades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/consultarid.html">Consultar IDs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/tecnicos.html">Técnicos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/sacMicuenta.html">SAC Mi Cuenta</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/orden_venta.html">Orden de Venta</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/delivery.html">Registrar Salida Equipos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/inventory.html">Inventario</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pages/managerteams.html">Manager Teams</a>
+            </li>
+          </ul>
+          <button id="logout" class="btn btn-outline-danger ml-auto">Logout</button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="user-info">
+            <img id="user-photo" src="" alt="Foto de usuario" width="100" height="100">
+            <h1>Bienvenid@, <span id="user-name-display"></span></h1>
+            <p id="user-email-display"></p>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/pages/delivery.html" class="btn btn-delivery option-btn">Registrar Salida Equipos</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/pages/almacen_actividades.html" class="btn btn-almacen option-btn">Almacén Actividades</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/pages/consultarid.html" class="btn btn-consultar option-btn">Consultar IDs</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/pages/tecnicos.html" class="btn btn-tecnicos option-btn">Técnicos</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/pages/sacMicuenta.html" class="btn btn-sac-micuenta option-btn">SAC Mi Cuenta</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/pages/orden_venta.html" class="btn btn-orden-venta option-btn">Orden de Venta</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/pages/inventory.html" class="btn btn-inventory option-btn">Inventario</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/pages/managerteams.html" class="btn btn-manager-teams option-btn">Manager Teams</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Carga de scripts -->
+    <script type="module" src="../scripts/app.js"></script>
+    <script type="module" src="../scripts/opciones.js"></script>
+</body>
+</html>
+

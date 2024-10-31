@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Técnicos</title>
+  <!-- Incluye Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Incluye SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-auth-compat.js"></script>
+  <link rel="stylesheet" href="../styles/tecnicostyles.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="../index.html">Fleetup</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/almacen_actividades.html">Almacén Actividades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/consultarid.html">Consultar IDs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/tecnicos.html">Técnicos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/sacMicuenta.html">SAC Mi Cuenta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/orden_venta.html">Orden de Venta</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/delivery.html">Registrar Salida Equipos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/inventory.html">Inventario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/pages/managerteams.html">Manager Teams</a>
+          </li>
+        </ul>
+        <button id="logout" class="btn btn-outline-danger ml-auto">Logout</button>
+      </div>
+  </nav>
+  </header>
+  <div class="container form-container">
+    <h2>Añadir Técnico</h2>
+    <form id="technical-form">
+      <div class="form-group">
+        <label for="user-name">Usuario:</label>
+        <input type="text" class="form-control" id="user-name" readonly>
+      </div>
+      <div class="form-group">
+        <label for="user-email">Correo:</label>
+        <input type="email" class="form-control" id="user-email" readonly>
+      </div>
+      <!-- Campos de texto -->
+      <div class="form-group">
+        <label for="nombre">Nombre Técnico:</label>
+        <input type="text" class="form-control" id="nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" class="form-control" id="telefono" required>
+      </div>
+      <div class="form-group">
+        <label for="correo">Correo:</label>
+        <input type="email" class="form-control" id="correo" required>
+      </div>
+      <div class="form-group">
+        <label for="rfc">RFC:</label>
+        <input type="text" class="form-control" id="rfc" required>
+      </div>
+      <div class="form-group">
+        <label for="banco">Banco:</label>
+        <select class="form-control" id="banco" required>
+          <option value="">Selecciona un banco</option>
+          <option value="BBVA">BBVA</option>
+          <option value="Banorte">Banorte</option>
+          <option value="Santander">Santander</option>
+          <option value="Citibanamex">Citibanamex</option>
+          <option value="HSBC">HSBC</option>
+          <option value="Scotiabank">Scotiabank</option>
+          <option value="Inbursa">Inbursa</option>
+          <option value="BanCoppel">BanCoppel</option>
+          <option value="Banco Azteca">Banco Azteca</option>
+          <option value="Bajío">Banco del Bajío</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cuenta-clabe">Cuenta CLABE:</label>
+        <input type="text" class="form-control" id="cuenta-clabe" required>
+      </div>
+      <div class="form-group">
+        <label for="cobertura">Cobertura</label>
+        <h3>Estados de la República</h3>
+        <div class="state-checkboxes">
+          <!-- Lista de estados de México -->
+          <!-- Asegúrate de incluir todos los estados -->
+          <label><input type="checkbox" class="state-checkbox" value="Aguascalientes"> Aguascalientes</label>
+          <label><input type="checkbox" class="state-checkbox" value="Baja California"> Baja California</label>
+          <label><input type="checkbox" class="state-checkbox" value="Baja California Sur"> Baja California Sur</label>
+          <label><input type="checkbox" class="state-checkbox" value="Campeche"> Campeche</label>
+          <label><input type="checkbox" class="state-checkbox" value="Chiapas"> Chiapas</label>
+          <label><input type="checkbox" class="state-checkbox" value="Chihuahua"> Chihuahua</label>
+          <label><input type="checkbox" class="state-checkbox" value="Coahuila"> Coahuila</label>
+          <label><input type="checkbox" class="state-checkbox" value="Colima"> Colima</label>
+          <label><input type="checkbox" class="state-checkbox" value="Durango"> Durango</label>
+          <label><input type="checkbox" class="state-checkbox" value="Guanajuato"> Guanajuato</label>
+          <label><input type="checkbox" class="state-checkbox" value="Guerrero"> Guerrero</label>
+          <label><input type="checkbox" class="state-checkbox" value="Hidalgo"> Hidalgo</label>
+          <label><input type="checkbox" class="state-checkbox" value="Jalisco"> Jalisco</label>
+          <label><input type="checkbox" class="state-checkbox" value="Mexico"> Estado de México</label>
+          <label><input type="checkbox" class="state-checkbox" value="Mexico City"> Ciudad de México</label>
+          <label><input type="checkbox" class="state-checkbox" value="Michoacán"> Michoacán</label>
+          <label><input type="checkbox" class="state-checkbox" value="Morelos"> Morelos</label>
+          <label><input type="checkbox" class="state-checkbox" value="Nayarit"> Nayarit</label>
+          <label><input type="checkbox" class="state-checkbox" value="Nuevo León"> Nuevo León</label>
+          <label><input type="checkbox" class="state-checkbox" value="Oaxaca"> Oaxaca</label>
+          <label><input type="checkbox" class="state-checkbox" value="Puebla"> Puebla</label>
+          <label><input type="checkbox" class="state-checkbox" value="Querétaro"> Querétaro</label>
+          <label><input type="checkbox" class="state-checkbox" value="Quintana Roo"> Quintana Roo</label>
+          <label><input type="checkbox" class="state-checkbox" value="San Luis Potosí"> San Luis Potosí</label>
+          <label><input type="checkbox" class="state-checkbox" value="Sinaloa"> Sinaloa</label>
+          <label><input type="checkbox" class="state-checkbox" value="Sonora"> Sonora</label>
+          <label><input type="checkbox" class="state-checkbox" value="Tabasco"> Tabasco</label>
+          <label><input type="checkbox" class="state-checkbox" value="Tamaulipas"> Tamaulipas</label>
+          <label><input type="checkbox" class="state-checkbox" value="Tlaxcala"> Tlaxcala</label>
+          <label><input type="checkbox" class="state-checkbox" value="Veracruz"> Veracruz</label>
+          <label><input type="checkbox" class="state-checkbox" value="Yucatán"> Yucatán</label>
+          <label><input type="checkbox" class="state-checkbox" value="Zacatecas"> Zacatecas</label>
+        </div>
+      </div>
+      <h3>Ciudades</h3>
+      <div id="ciudades-container" class="state-checkbox">
+        <!-- Aquí se agregarán los checkboxes de las ciudades -->
+      </div>
+      <!-- Tabla de costos -->
+      <div class="table-container">
+        <h3>Costos</h3>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Servicio</th>
+              <th>Costo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Instalación</td>
+              <td><input type="number" class="form-control cost-input" placeholder="Costo" required></td>
+            </tr>
+            <tr>
+              <td>Desinstalación</td>
+              <td><input type="number" class="form-control cost-input" placeholder="Costo" required></td>
+            </tr>
+            <tr>
+              <td>Revisión</td>
+              <td><input type="number" class="form-control cost-input" placeholder="Costo" required></td>
+            </tr>
+            <tr>
+              <td>Cambio de equipo</td>
+              <td><input type="number" class="form-control cost-input" placeholder="Costo" required></td>
+            </tr>
+            <tr>
+              <td>Visita en falso</td>
+              <td><input type="number" class="form-control cost-input" placeholder="Costo" required></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Botón de envío -->
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Incluye Bootstrap JS y dependencias -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Incluye SweetAlert2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  <script type="module" src="../scripts/tecnicos.js"></script>
+  <script type="module" src="../scripts/app.js"></script>
+</body>
+
+</html>
